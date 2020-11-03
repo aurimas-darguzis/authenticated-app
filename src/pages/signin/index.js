@@ -1,9 +1,5 @@
 import React from 'react'
 
 export default function Signin() {
-  return (
-    <div>
-      this is sign in
-    </div>
-  )
+  return <div>this is sign in</div>
 }
