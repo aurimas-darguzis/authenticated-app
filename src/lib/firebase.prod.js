@@ -14,5 +14,6 @@ const config = {
 }
 
 const firebase = Firebase.initializeApp(config)
+console.log('firebase: ', firebase)
 
 export { firebase }
