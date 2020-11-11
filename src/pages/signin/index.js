@@ -1,55 +1,19 @@
-import React, { useState, useContext } from 'react';
-import { useHistory } from 'react-router-dom';
-import { FirebaseContext } from '../../context/firebase';
-import * as ROUTES from '../../constants/routes';
+import React from 'react';
+import './signin.css';
+import SigninForm from './signinForm';
+import facebookIcon from '../../assets/icons/facebook.svg';
+import googleIcon from '../../assets/icons/google.svg';
 
 export default function Signin() {
-  const history = useHistory();
-  const { firebase } = useContext(FirebaseContext);
-
-  const [userEmail, setUserEmail] = useState('');
-  const [password, setPassword] = useState('');
-  const [error, setError] = useState('');
-
-  const isInvalid = password === '' || userEmail === '';
-
-  const handleSignin = (event) => {
-    event.preventDefault();
-
-    return firebase
-      .auth()
-      .signInWithEmailAndPassword(userEmail, password)
-      .then(() => {
-        console.log('oh my goooshshssh, its a success!');
-        history.push(ROUTES.DASHBOARD);
-      })
-      .catch((error) => {
-        console.log('theres an errrra : ', error);
-        setUserEmail('');
-        setPassword('');
-        setError(error.message);
-      });
-  };
-
   return (
-    <>
-      <div>
-        <label>username</label>
-        <input
-          type="text"
-          value={userEmail}
-          onChange={({ target }) => setUserEmail(target.value)}
-        />
+    <div className="login-container">
+      <h1>Sign in to Managery</h1>
+      <div className="icon-row">
+        <img src={facebookIcon} alt="facebook icon" className="social-icon" />
+        <img src={googleIcon} alt="facebook icon" className="social-icon" />
       </div>
-      <div>
-        <label>password</label>
-        <input
-          type="password"
-          value={password}
-          onChange={({ target }) => setPassword(target.value)}
-        />
-      </div>
-      <button onClick={handleSignin}>Sign in</button>
-    </>
+      <p>or use your email account:</p>
+      <SigninForm />
+    </div>
   );
 }

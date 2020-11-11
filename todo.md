@@ -1,0 +1,4 @@
+- [Implement unauthorised routes](https://medium.com/@leonardobrunolima/react-tips-how-to-protect-routes-for-unauthorized-access-with-react-router-v4-73c0d451e0a2)
+- [Password strength meter](https://www.digitalocean.com/community/tutorials/how-to-build-a-password-strength-meter-in-react)
+- [Best form practises](https://web.dev/sign-in-form-best-practices/)
+- [Authentication](https://www.youtube.com/watch?v=PKwu15ldZ7k&ab_channel=WebDevSimplified)

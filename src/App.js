@@ -9,6 +9,7 @@ import { Dashboard, Signin, Signup } from './pages';
 
 function App() {
   const { user } = useAuthListener();
+  console.log('cia yra user: ', user);
   return (
     <Router>
       <Switch>
@@ -26,7 +27,7 @@ function App() {
         >
           <Signup />
         </IsUserRedirect>
-        <ProtectedRoute user={user} path={ROUTES.DASHBOARD}>
+        <ProtectedRoute user={user} path={ROUTES.HOME}>
           <Dashboard />
         </ProtectedRoute>
       </Switch>
