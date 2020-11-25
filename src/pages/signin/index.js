@@ -1,5 +1,5 @@
 import React from 'react';
-import './signin.css';
+import './signin.scss';
 import SigninForm from './signinForm';
 import facebookIcon from '../../assets/icons/facebook.svg';
 import googleIcon from '../../assets/icons/google.svg';

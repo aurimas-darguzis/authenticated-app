@@ -1,7 +1,6 @@
 import React from 'react';
 import { BrowserRouter as Router, Switch } from 'react-router-dom';
-import logo from './logo.svg';
-import './App.css';
+import './App.scss';
 import { IsUserRedirect, ProtectedRoute } from './helpers/routes';
 import * as ROUTES from './constants/routes';
 import { useAuthListener } from './hooks';
