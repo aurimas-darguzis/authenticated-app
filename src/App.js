@@ -8,7 +8,6 @@ import { Dashboard, Signin, Signup } from './pages';
 
 function App() {
   const { user } = useAuthListener();
-  console.log('cia yra user: ', user);
   return (
     <Router>
       <Switch>

@@ -31,8 +31,8 @@ export default function SigninForm() {
       });
   };
   return (
-    <div>
-      <div>
+    <>
+      <div className="signin_form_input_container">
         <input
           type="text"
           value={userEmail}
@@ -40,7 +40,7 @@ export default function SigninForm() {
           onChange={({ target }) => setUserEmail(target.value)}
         />
       </div>
-      <div>
+      <div className="signin_form_input_container">
         <input
           type="password"
           value={password}
@@ -48,10 +48,13 @@ export default function SigninForm() {
           onChange={({ target }) => setPassword(target.value)}
         />
       </div>
-      <div>
-        Don't have an account? <Link to={ROUTES.SIGN_UP}>Register mate</Link>
+      <div className="signin_form_input_container">
+        Don't have an account? &nbsp;
+        <Link to={ROUTES.SIGN_UP}>Register here</Link>
       </div>
-      <button onClick={handleSignin}>Sign in</button>
-    </div>
+      <div className="signin_form_input_container">
+        <button onClick={handleSignin}>Sign in</button>
+      </div>
+    </>
   );
 }

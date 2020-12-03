@@ -25,3 +25,34 @@ h1 {
   position: relative;
   left: 7px;
 }
+
+img {
+  cursor: pointer;
+}
+
+.signin_form_input_container {
+  margin-bottom: 30px;
+  width: 300px;
+  height: 35px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+input {
+  width: inherit;
+  height: inherit;
+  border: none;
+  border-bottom: 1px solid green;
+  outline: none;
+  font-size: 18px;
+}
+
+button {
+  width: 140px;
+  height: 30px;
+  background: #e1e7f7;
+  cursor: pointer;
+  border: 1px solid red;
+  border-radius: 5px;
+}
