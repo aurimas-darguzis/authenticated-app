@@ -10,9 +10,9 @@ export default function SigninForm() {
 
   const [userEmail, setUserEmail] = useState('');
   const [password, setPassword] = useState('');
-  const [error, setError] = useState('');
+  // const [error, setError] = useState('');
 
-  const isInvalid = password === '' || userEmail === '';
+  // const isInvalid = password === '' || userEmail === '';
 
   const handleSignin = (event) => {
     event.preventDefault();
@@ -27,18 +27,25 @@ export default function SigninForm() {
         console.log('theres an errrra : ', error);
         setUserEmail('');
         setPassword('');
-        setError(error.message);
+        // setError(error.message);
       });
   };
   return (
-    <>
-      <div className="signin_form_input_container">
-        <input
-          type="text"
-          value={userEmail}
-          placeholder="Email"
-          onChange={({ target }) => setUserEmail(target.value)}
-        />
+    <form id="loginForm" novalidate>
+      <div className="input-wrapper">
+        <div className="input-area">
+          <input
+            type="text"
+            title="Username / email"
+            value={userEmail}
+            onChange={({ target }) => setUserEmail(target.value)}
+          />
+          <label for="handle" className="input-label">
+            Username / email
+          </label>
+          <div className="input-underline"></div>
+        </div>
+        <div className="extra-info"></div>
       </div>
       <div className="signin_form_input_container">
         <input
@@ -55,6 +62,6 @@ export default function SigninForm() {
       <div className="signin_form_input_container">
         <button onClick={handleSignin}>Sign in</button>
       </div>
-    </>
+    </form>
   );
 }

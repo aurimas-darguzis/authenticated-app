@@ -1,36 +1,25 @@
 import React from 'react';
 import './signin.scss';
 import SigninForm from './signinForm';
-import facebookIcon from '../../assets/icons/facebook.svg';
-import googleIcon from '../../assets/icons/google.svg';
+import googleGIcon from '../../assets/icons/google_g.svg';
 
 export default function Signin() {
-  const onFacebookLoginClick = () => {
-    console.log('facebook login click!');
-  };
-
   const onGoogleLoginClick = () => {
     console.log('Google login click!');
   };
 
   return (
     <div className="login-container">
-      <h1>Sign in to Managery</h1>
-      <div className="icon-row">
-        <img
-          src={facebookIcon}
-          alt="facebook icon"
-          className="social-icon"
-          onClick={onFacebookLoginClick}
-        />
-        <img
-          src={googleIcon}
-          alt="facebook icon"
-          className="social-icon"
-          onClick={onGoogleLoginClick}
-        />
+      <header>
+        <h1>Welcome</h1>
+      </header>
+      <div className="google-button-container">
+        <a href="/login">
+          <img src={googleGIcon} alt="Google icon" width="18px" height="18px" />
+          <span className="login">Login with Google</span>
+        </a>
       </div>
-      <p>or use your email account:</p>
+      <p className="login-options-or-text">or</p>
       <SigninForm />
     </div>
   );
