@@ -36,8 +36,15 @@ export default function SigninForm() {
         <div className="input-area">
           <input
             type="text"
+            name="handle"
+            id="handle"
             title="Username / email"
             value={userEmail}
+            maxLength={256}
+            required
+            autocapitalize="none"
+            autoFocus
+            autocomplete="off"
             onChange={({ target }) => setUserEmail(target.value)}
           />
           <label for="handle" className="input-label">
@@ -47,21 +54,44 @@ export default function SigninForm() {
         </div>
         <div className="extra-info"></div>
       </div>
-      <div className="signin_form_input_container">
-        <input
-          type="password"
-          value={password}
-          placeholder="Password"
-          onChange={({ target }) => setPassword(target.value)}
-        />
+
+      <div className="input-wrapper password" title="Password">
+        <div className="input-area">
+          <input
+            type="password"
+            name="passowrd"
+            id="password"
+            maxLength={100}
+            required
+            autocomplete="off"
+            value={password}
+            placeholder="Password"
+            onChange={({ target }) => setPassword(target.value)}
+          />
+          <label for="password" class="input-label">
+            Password
+          </label>
+          <label class="show-password">
+            <input
+              type="checkbox"
+              name="show-password-checkbox"
+              class="show-password-checkbox"
+            />
+            <span class="checkbox"></span>
+            <span class="checkbox-label">show</span>
+          </label>
+          <div className="input-underline"></div>
+        </div>
+        <div className="extra-info"></div>
       </div>
-      <div className="signin_form_input_container">
+
+      {/* <div className="signin_form_input_container">
         Don't have an account? &nbsp;
         <Link to={ROUTES.SIGN_UP}>Register here</Link>
-      </div>
-      <div className="signin_form_input_container">
-        <button onClick={handleSignin}>Sign in</button>
-      </div>
+      </div> */}
+      {/* <div> */}
+      <button onClick={handleSignin}>Login</button>
+      {/* </div> */}
     </form>
   );
 }

@@ -21,6 +21,16 @@ export default function Signin() {
       </div>
       <p className="login-options-or-text">or</p>
       <SigninForm />
+      <footer>
+        <ul>
+          <li>
+            <a href="/">Forgot password?</a>
+          </li>
+          <li>
+            No account yet? <a href="/">Sign up</a>
+          </li>
+        </ul>
+      </footer>
     </div>
   );
 }
