@@ -64,6 +64,33 @@ form {
   margin: 12px auto 0;
   margin-top: 0;
 
+  .password {
+    .show-password {
+      display: flex;
+      align-self: flex-end;
+      align-items: center;
+      padding: 5px 0 8px 4px;
+      font-size: 12px;
+      cursor: pointer;
+      color: #979197;
+    }
+    input[type='checkbox'] {
+      display: none;
+    }
+    .checkbox {
+      background-image: url('../../assets/icons/icCheckOff.svg');
+      width: 16px;
+      height: 16px;
+      background-size: contain;
+      background-position: center;
+      background-repeat: no-repeat;
+    }
+
+    .checkbox-label {
+      margin-left: 6px;
+    }
+  }
+
   .input-wrapper {
     position: relative;
     max-width: 392px;

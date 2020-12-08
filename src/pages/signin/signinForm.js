@@ -37,14 +37,15 @@ export default function SigninForm() {
           <input
             type="text"
             name="handle"
+            placeholder="Username / email"
             id="handle"
-            title="Username / email"
-            value={userEmail}
             maxLength={256}
             required
             autocapitalize="none"
             autoFocus
             autocomplete="off"
+            // title="Username / email"
+            value={userEmail}
             onChange={({ target }) => setUserEmail(target.value)}
           />
           <label for="handle" className="input-label">
@@ -78,7 +79,7 @@ export default function SigninForm() {
               class="show-password-checkbox"
             />
             <span class="checkbox"></span>
-            <span class="checkbox-label">show</span>
+            <span class="checkbox-label">Show</span>
           </label>
           <div className="input-underline"></div>
         </div>
