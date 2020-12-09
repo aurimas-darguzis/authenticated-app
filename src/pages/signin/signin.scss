@@ -1,12 +1,4 @@
 .login-container {
-  // display: flex;
-  // flex-direction: column;
-  // border: 1px solid red;
-  // width: 50%;
-  // justify-content: center;
-  // align-items: center;
-  // margin: 0 auto;
-
   header {
     width: 100%;
     padding-top: 124px;
@@ -78,12 +70,18 @@ form {
       display: none;
     }
     .checkbox {
-      background-image: url('../../assets/icons/icCheckOff.svg');
       width: 16px;
       height: 16px;
       background-size: contain;
       background-position: center;
       background-repeat: no-repeat;
+    }
+
+    .checkbox-on {
+      background-image: url('../../assets/icons/icCheckOn.svg');
+    }
+    .checkbox-off {
+      background-image: url('../../assets/icons/icCheckOff.svg');
     }
 
     .checkbox-label {
@@ -177,52 +175,3 @@ footer {
     font-weight: normal;
   }
 }
-
-// h1 {
-//   margin-bottom: 0.3em;
-// }
-
-// .social-icon {
-//   width: 2em;
-//   height: 2em;
-// }
-
-// .social-icon:nth-child(1) {
-//   position: relative;
-//   right: 7px;
-// }
-// .social-icon:nth-child(2) {
-//   position: relative;
-//   left: 7px;
-// }
-
-// img {
-//   cursor: pointer;
-// }
-
-// .signin_form_input_container {
-//   margin-bottom: 30px;
-//   width: 300px;
-//   height: 35px;
-//   display: flex;
-//   justify-content: center;
-//   align-items: center;
-// }
-
-// input {
-//   width: inherit;
-//   height: inherit;
-//   border: none;
-//   border-bottom: 1px solid green;
-//   outline: none;
-//   font-size: 18px;
-// }
-
-// button {
-//   width: 140px;
-//   height: 30px;
-//   background: #e1e7f7;
-//   cursor: pointer;
-//   border: 1px solid red;
-//   border-radius: 5px;
-// }

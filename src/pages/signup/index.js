@@ -9,7 +9,10 @@ export default function Signup() {
   const [firstName, setFirstName] = useState('');
   const [emailAddress, setEmailAddress] = useState('');
   const [password, setPassword] = useState('');
-  const [error, setError] = useState('');
+
+  // TODO: error handler
+  // const [error, setError] = useState('');
+
   const { firebase } = useContext(FirebaseContext);
 
   const handleSignup = (event) => {
@@ -32,7 +35,6 @@ export default function Signup() {
         setFirstName('');
         setEmailAddress('');
         setPassword('');
-        setError(error.message);
       });
   };
 

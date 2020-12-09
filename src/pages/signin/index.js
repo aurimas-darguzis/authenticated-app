@@ -2,6 +2,8 @@ import React from 'react';
 import './signin.scss';
 import SigninForm from './signinForm';
 import googleGIcon from '../../assets/icons/google_g.svg';
+import { Link } from 'react-router-dom';
+import * as ROUTES from '../../constants/routes';
 
 export default function Signin() {
   const onGoogleLoginClick = () => {
@@ -24,10 +26,10 @@ export default function Signin() {
       <footer>
         <ul>
           <li>
-            <a href="/">Forgot password?</a>
+            <Link to={ROUTES.FORGOT_PASSWORD}>Forgot password?</Link>
           </li>
           <li>
-            No account yet? <a href="/">Sign up</a>
+            No account yet? <Link to={ROUTES.SIGN_UP}>Sign up</Link>
           </li>
         </ul>
       </footer>

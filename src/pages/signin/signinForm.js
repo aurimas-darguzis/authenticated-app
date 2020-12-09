@@ -1,17 +1,19 @@
-import React, { useState, useContext } from 'react';
+import React, { useState, useContext, useRef } from 'react';
 import { useHistory } from 'react-router-dom';
 import { FirebaseContext } from '../../context/firebase';
 import * as ROUTES from '../../constants/routes';
-import { Link } from 'react-router-dom';
 
 export default function SigninForm() {
   const history = useHistory();
+  const passwordEl = useRef(null);
   const { firebase } = useContext(FirebaseContext);
 
   const [userEmail, setUserEmail] = useState('');
+  const [showPassword, setShowPassword] = useState(false);
   const [password, setPassword] = useState('');
-  // const [error, setError] = useState('');
 
+  // TODO: error and feedback handler
+  // const [error, setError] = useState('');
   // const isInvalid = password === '' || userEmail === '';
 
   const handleSignin = (event) => {
@@ -24,14 +26,17 @@ export default function SigninForm() {
         history.push(ROUTES.DASHBOARD);
       })
       .catch((error) => {
-        console.log('theres an errrra : ', error);
         setUserEmail('');
         setPassword('');
-        // setError(error.message);
       });
   };
+
+  const onShowPasswordClick = (e) => {
+    setShowPassword(!showPassword);
+  };
+
   return (
-    <form id="loginForm" novalidate>
+    <form id="loginForm" noValidate>
       <div className="input-wrapper">
         <div className="input-area">
           <input
@@ -41,58 +46,49 @@ export default function SigninForm() {
             id="handle"
             maxLength={256}
             required
-            autocapitalize="none"
+            autoCapitalize="none"
             autoFocus
-            autocomplete="off"
-            // title="Username / email"
+            autoComplete="off"
             value={userEmail}
             onChange={({ target }) => setUserEmail(target.value)}
           />
-          <label for="handle" className="input-label">
+          <label htmlFor="handle" className="input-label">
             Username / email
           </label>
           <div className="input-underline"></div>
         </div>
         <div className="extra-info"></div>
       </div>
-
       <div className="input-wrapper password" title="Password">
         <div className="input-area">
           <input
-            type="password"
+            ref={passwordEl}
+            type={showPassword ? 'text' : 'password'}
             name="passowrd"
             id="password"
             maxLength={100}
             required
-            autocomplete="off"
+            autoComplete="off"
             value={password}
             placeholder="Password"
             onChange={({ target }) => setPassword(target.value)}
           />
-          <label for="password" class="input-label">
+          <label htmlFor="password" className="input-label">
             Password
           </label>
-          <label class="show-password">
-            <input
-              type="checkbox"
-              name="show-password-checkbox"
-              class="show-password-checkbox"
-            />
-            <span class="checkbox"></span>
-            <span class="checkbox-label">Show</span>
+          <label onClick={onShowPasswordClick} className="show-password">
+            <span
+              className={`checkbox ${
+                showPassword ? 'checkbox-on' : 'checkbox-off'
+              }`}
+            ></span>
+            <span className="checkbox-label">Show</span>
           </label>
           <div className="input-underline"></div>
         </div>
         <div className="extra-info"></div>
       </div>
-
-      {/* <div className="signin_form_input_container">
-        Don't have an account? &nbsp;
-        <Link to={ROUTES.SIGN_UP}>Register here</Link>
-      </div> */}
-      {/* <div> */}
       <button onClick={handleSignin}>Login</button>
-      {/* </div> */}
     </form>
   );
 }
