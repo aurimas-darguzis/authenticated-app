@@ -1,11 +1,10 @@
-import React, { useState, useContext, useRef } from 'react';
+import React, { useState, useContext } from 'react';
 import { useHistory } from 'react-router-dom';
 import { FirebaseContext } from '../../context/firebase';
 import * as ROUTES from '../../constants/routes';
 
 export default function SigninForm() {
   const history = useHistory();
-  const passwordEl = useRef(null);
   const { firebase } = useContext(FirebaseContext);
 
   const [userEmail, setUserEmail] = useState('');
@@ -31,7 +30,7 @@ export default function SigninForm() {
       });
   };
 
-  const onShowPasswordClick = (e) => {
+  const onShowPasswordClick = () => {
     setShowPassword(!showPassword);
   };
 
@@ -62,7 +61,6 @@ export default function SigninForm() {
       <div className="input-wrapper password" title="Password">
         <div className="input-area">
           <input
-            ref={passwordEl}
             type={showPassword ? 'text' : 'password'}
             name="passowrd"
             id="password"
