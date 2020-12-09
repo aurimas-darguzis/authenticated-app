@@ -1,6 +1,4 @@
 import React from 'react';
-import * as ROUTES from '../../constants/routes';
-import { Link } from 'react-router-dom';
 import './forgot-password.scss';
 
 export default function ForgtoPassword() {
@@ -8,7 +6,7 @@ export default function ForgtoPassword() {
     <>
       <header>
         <h1>Forgot your password?</h1>
-        <h2>We'll send you an email with instructions</h2>
+        <h2>We'll send you an email with instructions.</h2>
       </header>
       <form>
         <div className="input-wrapper">
