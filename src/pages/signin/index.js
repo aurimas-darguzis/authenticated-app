@@ -13,7 +13,7 @@ export default function Signin() {
   return (
     <div className="login-container">
       <header>
-        <h1>Welcome</h1>
+        <h1>Welcome!</h1>
       </header>
       <div className="google-button-container">
         <a href="/login">

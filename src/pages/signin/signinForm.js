@@ -42,7 +42,6 @@ export default function SigninForm() {
             type="text"
             name="handle"
             placeholder="Username / email"
-            id="handle"
             maxLength={256}
             required
             autoCapitalize="none"

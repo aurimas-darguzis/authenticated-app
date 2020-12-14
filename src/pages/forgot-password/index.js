@@ -8,21 +8,20 @@ export default function ForgtoPassword() {
         <h1>Forgot your password?</h1>
         <h2>We'll send you an email with instructions.</h2>
       </header>
-      <form>
+      <form className="forgot-password">
         <div className="input-wrapper">
           <div className="input-area">
             <input
               type="text"
               name="handle"
               placeholder="Username / email"
-              id="handle"
               maxLength={256}
               required
               autoCapitalize="none"
-              autocomplete="username"
+              autoComplete="username"
               autoFocus
             />
-            <label for="handle" className="input-label">
+            <label htmlFor="handle" className="input-label">
               Username / email
             </label>
             <div className="input-underline"></div>
