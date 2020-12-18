@@ -11,7 +11,7 @@ export default function Unauthenticated({ children }) {
   const isSignUp = url === '/signup';
 
   return (
-    <div className="login-container">
+    <div className="unauth-container">
       {isForgotPassword ? (
         <></>
       ) : (
@@ -20,7 +20,7 @@ export default function Unauthenticated({ children }) {
             <h1>{isSignIn ? 'Welcome!' : 'Start using Bussiness Manager!'}</h1>
           </header>
           <SignInWithGoogle />
-          <p className="login-options-or-text">or</p>
+          <p className="auth-or-text">or</p>
         </>
       )}
 

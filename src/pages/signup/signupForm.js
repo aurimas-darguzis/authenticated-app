@@ -38,7 +38,7 @@ export default function SignupForm() {
     setShowPassword(!showPassword);
   };
   return (
-    <form id="loginForm" noValidate>
+    <form noValidate>
       <div className="input-wrapper">
         <div className="input-area">
           <input
