@@ -3,28 +3,32 @@ import { useHistory } from 'react-router-dom';
 import { FirebaseContext } from '../../context/firebase';
 import * as ROUTES from '../../constants/routes';
 
-export default function SigninForm() {
-  const history = useHistory();
+export default function SignupForm() {
   const { firebase } = useContext(FirebaseContext);
-
+  const history = useHistory();
+  const [userName, setUsername] = useState('');
   const [userEmail, setUserEmail] = useState('');
-  const [showPassword, setShowPassword] = useState(false);
   const [password, setPassword] = useState('');
-
-  // TODO: error and feedback handler
-  // const [error, setError] = useState('');
-  // const isInvalid = password === '' || userEmail === '';
-
-  const handleSignin = (event) => {
+  const [showPassword, setShowPassword] = useState('');
+  const [agreeToTC, setAgreeToTC] = useState(false);
+  const handleSignup = (event) => {
     event.preventDefault();
 
     return firebase
       .auth()
-      .signInWithEmailAndPassword(userEmail, password)
-      .then(() => {
-        history.push(ROUTES.DASHBOARD);
-      })
+      .createUserWithEmailAndPassword(userEmail, password)
+      .then((result) =>
+        result.user
+          .updateProfile({
+            displayName: userName,
+            photoURL: Math.floor(Math.random() * 5) + 1,
+          })
+          .then(() => {
+            history.push(ROUTES.DASHBOARD);
+          })
+      )
       .catch((error) => {
+        setUsername('');
         setUserEmail('');
         setPassword('');
       });
@@ -33,7 +37,6 @@ export default function SigninForm() {
   const onShowPasswordClick = () => {
     setShowPassword(!showPassword);
   };
-
   return (
     <form noValidate>
       <div className="input-wrapper">
@@ -41,7 +44,7 @@ export default function SigninForm() {
           <input
             type="text"
             name="handle"
-            placeholder="Username / email"
+            placeholder="Email"
             maxLength={256}
             required
             autoCapitalize="none"
@@ -51,7 +54,28 @@ export default function SigninForm() {
             onChange={({ target }) => setUserEmail(target.value)}
           />
           <label htmlFor="handle" className="input-label">
-            Username / email
+            Email
+          </label>
+          <div className="input-underline"></div>
+        </div>
+        <div className="extra-info"></div>
+      </div>
+      <div className="input-wrapper">
+        <div className="input-area">
+          <input
+            type="text"
+            name="handle"
+            placeholder="Username"
+            maxLength={256}
+            required
+            autoCapitalize="none"
+            autoFocus
+            autoComplete="off"
+            value={userName}
+            onChange={({ target }) => setUsername(target.value)}
+          />
+          <label htmlFor="handle" className="input-label">
+            Username
           </label>
           <div className="input-underline"></div>
         </div>
@@ -79,13 +103,23 @@ export default function SigninForm() {
                 showPassword ? 'checkbox-on' : 'checkbox-off'
               }`}
             ></span>
+
             <span className="checkbox-label">Show</span>
           </label>
           <div className="input-underline"></div>
         </div>
         <div className="extra-info"></div>
       </div>
-      <button onClick={handleSignin}>Login</button>
+      <label
+        className="termsOfService"
+        onClick={() => setAgreeToTC(!agreeToTC)}
+      >
+        <span
+          className={`checkbox ${agreeToTC ? 'checkbox-on' : 'checkbox-off'}`}
+        ></span>
+        <span>I agree to Terms of Service</span>
+      </label>
+      <button onClick={handleSignup}>Sign up for free</button>
     </form>
   );
 }
