@@ -1,5 +1,4 @@
 import React from 'react';
-import './forgot-password.scss';
 
 export default function ForgtoPassword() {
   return (

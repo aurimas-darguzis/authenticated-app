@@ -1,3 +1,4 @@
+// Signin
 .login-container {
   header {
     width: 100%;
@@ -175,5 +176,73 @@ footer {
     color: #419bf9;
     text-decoration: none;
     font-weight: normal;
+  }
+}
+
+// Signup
+.termsOfService {
+  display: flex;
+  align-items: center;
+  line-height: 19px;
+  font-size: 14px;
+  color: #979197;
+  cursor: pointer;
+  padding: 27px 16px 4px;
+
+  input {
+    display: block;
+    flex-grow: 0;
+    opacity: 0;
+    height: 0;
+  }
+}
+
+.checkbox {
+  width: 16px;
+  height: 16px;
+  background-size: contain;
+  background-position: center;
+  background-repeat: no-repeat;
+  margin-right: 6px;
+}
+
+.checkbox-on {
+  background-image: url('../../assets/icons/icCheckOn.svg');
+}
+.checkbox-off {
+  background-image: url('../../assets/icons/icCheckOff.svg');
+}
+
+// Forgot Password
+header {
+  //   width: 100%;
+  //   padding-top: 124px;
+  //   text-align: center;
+
+  h1 {
+    line-height: 48px;
+    font-size: 36px;
+    font-weight: 300;
+    color: #554d56;
+  }
+
+  h2 {
+    line-height: 24px;
+    font-size: 18px;
+    color: #ee6723;
+  }
+}
+
+form.forgot-password {
+  position: relative;
+  display: block;
+  max-width: 392px;
+  width: 100%;
+  margin: 12px auto 0;
+  button {
+    height: 60px;
+    background-color: #fdbd39;
+    color: #fff;
+    margin: 8px 16px 12px;
   }
 }

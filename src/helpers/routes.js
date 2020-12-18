@@ -1,13 +1,15 @@
 import React from 'react';
 import { Route, Redirect } from 'react-router-dom';
+import Unauthenticated from '../pages/unauthenticated';
 
 export function IsUserRedirect({ user, loggedInPath, children, ...rest }) {
   return (
     <Route
       {...rest}
+      path="/:id"
       render={() => {
         if (!user) {
-          return children;
+          return <Unauthenticated>{children}</Unauthenticated>;
         }
 
         if (user) {

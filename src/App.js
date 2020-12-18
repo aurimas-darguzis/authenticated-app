@@ -4,8 +4,10 @@ import './App.scss';
 import { IsUserRedirect, ProtectedRoute } from './helpers/routes';
 import * as ROUTES from './constants/routes';
 import { useAuthListener } from './hooks';
-import { Dashboard, Signin, Signup } from './pages';
+import { Dashboard } from './pages';
 import ForgtoPassword from './pages/forgot-password';
+import SigninForm from './pages/signin/signinForm';
+import SignupForm from './pages/signup/signupForm';
 
 function App() {
   const { user } = useAuthListener();
@@ -17,14 +19,14 @@ function App() {
           loggedInPath={ROUTES.DASHBOARD}
           path={ROUTES.SIGN_IN}
         >
-          <Signin />
+          <SigninForm />
         </IsUserRedirect>
         <IsUserRedirect
           user={user}
           loggedInPath={ROUTES.DASHBOARD}
           path={ROUTES.SIGN_UP}
         >
-          <Signup />
+          <SignupForm />
         </IsUserRedirect>
         <IsUserRedirect
           user={user}
