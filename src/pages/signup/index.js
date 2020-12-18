@@ -91,7 +91,7 @@ export default function Signup() {
               autoCapitalize="none"
               autoFocus
               autoComplete="off"
-              value={userEmail}
+              value={userName}
               onChange={({ target }) => setUsername(target.value)}
             />
             <label htmlFor="handle" className="input-label">
