@@ -14,19 +14,23 @@ export default function SignupForm() {
   const handleSignup = (event) => {
     event.preventDefault();
 
+    console.log('sign up: email ', userEmail);
+    console.log('sign up: password', password);
     return firebase
       .auth()
       .createUserWithEmailAndPassword(userEmail, password)
-      .then((result) =>
-        result.user
+      .then((result) => {
+        console.log('turim result? ', result);
+        return result.user
           .updateProfile({
             displayName: userName,
             photoURL: Math.floor(Math.random() * 5) + 1,
           })
           .then(() => {
+            console.log('ir cia pushinam kazka?');
             history.push(ROUTES.DASHBOARD);
-          })
-      )
+          });
+      })
       .catch((error) => {
         setUsername('');
         setUserEmail('');

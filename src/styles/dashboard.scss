@@ -1,0 +1,16 @@
+.dashboard__container {
+  display: flex;
+
+  &__sidebar {
+    width: 256px;
+  }
+
+  &__main {
+    display: flex;
+    flex-direction: column;
+
+    &__header {
+      border: 1px solid red;
+    }
+  }
+}

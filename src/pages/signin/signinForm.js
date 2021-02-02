@@ -17,14 +17,17 @@ export default function SigninForm() {
 
   const handleSignin = (event) => {
     event.preventDefault();
-
+    console.log('hadle sign in email', userEmail);
+    console.log('hadle sign in password', password);
     return firebase
       .auth()
       .signInWithEmailAndPassword(userEmail, password)
       .then(() => {
+        console.log('mes in?');
         history.push(ROUTES.DASHBOARD);
       })
       .catch((error) => {
+        console.log('error? ', error);
         setUserEmail('');
         setPassword('');
       });
