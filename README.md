@@ -66,3 +66,8 @@ This section has moved here: https://facebook.github.io/create-react-app/docs/de
 ### `yarn build` fails to minify
 
 This section has moved here: https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify
+
+#### Design layout ideas
+
+(1)[https://console.cloud.google.com/iam-admin/iam?authuser=0&project=fir-authentication-8066f]
+(2)[https://console.firebase.google.com/u/0/project/fir-authentication-8066f/storage/fir-authentication-8066f.appspot.com/files]

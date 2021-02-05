@@ -5,7 +5,7 @@ export default function useAuthListener() {
   const [user, setUser] = useState(
     JSON.parse(localStorage.getItem('authUser'))
   );
-  const { firebase } = useContext(FirebaseContext);
+  const { firebase, db } = useContext(FirebaseContext);
 
   useEffect(() => {
     const listener = firebase.auth().onAuthStateChanged((authUser) => {
@@ -16,6 +16,8 @@ export default function useAuthListener() {
         localStorage.removeItem('authUser');
         setUser(null);
       }
+      const inventory = db.collection('inventory');
+      console.log('inventory ', inventory);
     });
 
     return () => listener();
